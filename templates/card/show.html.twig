@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    <div class="card border-0 shadow-lg">
+        <div class="card-header border-0">
+            Card
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-sm btn-primary me-1" href="{{ path('app_card_edit', {'id': card.id}) }}">edit</a>
+                {{ include('card/_delete_form.html.twig') }}
+            </div>
+            <table class="table table-hover table-stiped">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ card.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Firstname</th>
+                        <td>{{ card.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lastname</th>
+                        <td>{{ card.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ card.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>PhoneNumber</th>
+                        <td>{{ card.phoneNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address1</th>
+                        <td>{{ card.address1 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address2</th>
+                        <td>{{ card.address2 }}</td>
+                    </tr>
+                    <tr>
+                        <th>PostCode</th>
+                        <td>{{ card.postCode }}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>{{ card.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Civility</th>
+                        <td>{{ card.civility }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_card_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

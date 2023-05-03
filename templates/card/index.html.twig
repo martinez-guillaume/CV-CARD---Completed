@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Card index{% endblock %}
+
+{% block body %}
+    <div class="card border-0 shadow-lg">
+        <div class="card-header border-0">
+            Card index
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>PhoneNumber</th>
+                            <th>Address1</th>
+                            <th>Address2</th>
+                            <th>PostCode</th>
+                            <th>City</th>
+                            <th>Civility</th>
+                            <th>Privé</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for card in cards %}
+                        <tr>
+                            <td>{{ card.id }}</td>
+                            <td>{{ card.firstname }}</td>
+                            <td>{{ card.lastname }}</td>
+                            <td>{{ card.email }}</td>
+                            <td>{{ card.phoneNumber }}</td>
+                            <td>{{ card.address1 }}</td>
+                            <td>{{ card.address2 }}</td>
+                            <td>{{ card.postCode }}</td>
+                            <td>{{ card.city }}</td>
+                            <td>{{ card.civility }}</td>
+                            <td>{{ card.isPrivate ? 'Oui' : 'Non' }}</td>
+                            <td>
+                                <a href="{{ path('app_card_show', {'id': card.id}) }}">show</a>
+                                <a href="{{ path('app_card_edit', {'id': card.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="11">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_card_new') }}">Create new</a>
+{% endblock %}
